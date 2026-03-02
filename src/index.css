@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+
+body { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+
+/* subtle card and entrance animations */
+@keyframes fadeInUp { 
+	from { opacity: 0; transform: translateY(8px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+	animation: fadeInUp 500ms ease both;
+}
+
+.glass-card {
+	background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(250,250,250,0.7));
+	box-shadow: 0 6px 20px rgba(16,24,40,0.06);
+}
+
+/* responsive tweaks */
+@media (min-width: 768px) {
+	.md\:container { max-width: 720px; margin: 0 auto; }
+}
+
+/* Vibrant gradients and decorative animations */
+:root{
+	--accent-1: #7c3aed; /* indigo-violet */
+	--accent-2: #06b6d4; /* cyan */
+	--accent-3: #fb7185; /* pink */
+}
+
+@keyframes gradientShift {
+	0% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
+	100% { background-position: 0% 50%; }
+}
+
+.bg-gradient-animated {
+	background: linear-gradient(270deg, var(--accent-1), var(--accent-2), var(--accent-3));
+	background-size: 600% 600%;
+	animation: gradientShift 8s ease infinite;
+}
+
+.blob {
+	position: absolute;
+	filter: blur(48px);
+	opacity: 0.35;
+	transform: translateZ(0);
+}
+
+.cta-pulse {
+	box-shadow: 0 8px 30px rgba(124,58,237,0.18);
+	transition: transform .18s ease, box-shadow .18s ease;
+}
+.cta-pulse:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 14px 40px rgba(124,58,237,0.22); }
+
+.skill-badge { transition: transform .18s ease, box-shadow .18s ease; }
+.skill-badge:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(6,182,212,0.12); }
+
+.card-border-gradient {
+	background: linear-gradient(135deg, rgba(124,58,237,0.12), rgba(251,113,133,0.08));
+	padding: 1px;
+	border-radius: 12px;
+}
+
+/* small floating animation */
+@keyframes floaty { 0% { transform: translateY(0);} 50% { transform: translateY(-6px);} 100% { transform: translateY(0);} }
+.floaty { animation: floaty 4s ease-in-out infinite; }
